@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
 
 @Configuration
 @EnableWebSecurity
@@ -37,11 +37,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                    .antMatchers("/register").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
                     .loginProcessingUrl("/login")
-                    .usernameParameter("code")
+                    .usernameParameter("username")
                     .passwordParameter("password")
                     .successHandler(new AuthenticationSuccessHandler() {
                         @Override
