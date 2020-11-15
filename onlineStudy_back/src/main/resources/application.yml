@@ -18,5 +18,17 @@ spring:
       hibernate:
         format_sql: true
 
+  devtools:
+    restart:
+      enabled: false
+
 server:
   port: 9090
+#debug: true
+
+file:
+  save:
+    path: E:/MyProject/files/
+
+default:
+  headIco: headIco/default.jpg

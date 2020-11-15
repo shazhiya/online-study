@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './user'
+import security from './security'
 import post from './util'
+import createPersistedState from "vuex-persistedstate"
+
 
 Vue.use(Vuex)
 
@@ -10,7 +13,7 @@ export default new Vuex.Store({
     signUp: false
   },
   modules: {
-    user
+    user,security
   },
   mutations:{
     changeSignUp(state,flag){
@@ -22,14 +25,15 @@ export default new Vuex.Store({
       return post('login',data,res=>{
         if(res.data != 'success') return false
         commit('changeSignUp',true)
-        commit('user/updateUserInfo',data,{root:true})
+        commit('user/updateUserName',data,{root:true})
         return true
       },true)
     },
-    register({},data){
+    register(store,data){
       return post('register',data,res=>{
         return res.data
       })
     }
-  }
+  },
+  plugins: [createPersistedState({storage : window.sessionStorage})]
 })

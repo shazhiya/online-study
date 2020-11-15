@@ -37,8 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/register").permitAll()
-                    .anyRequest().authenticated()
+//                    .antMatchers("/register").permitAll()
+                    .anyRequest().permitAll()
                     .and()
                 .formLogin()
                     .loginProcessingUrl("/login")
@@ -81,7 +81,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 try{
                     ArrayList authorities = new ArrayList<SimpleGrantedAuthority>();
                     userEntity.getRoles().forEach(role->authorities.add(new SimpleGrantedAuthority(role.getRoleName())));
-                    return new User(userName,userEntity.getPassword(),true,true,true,true,authorities);
+                    return new User(userName,userEntity.getPassword(),userEntity.getUserEnable(),true,true,true,authorities);
                 }catch (Exception e){
                     return new User(userName,null,false,false,false,false,null);
                 }

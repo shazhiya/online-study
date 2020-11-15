@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -26,4 +27,15 @@ public class UserController {
     public Integer register(@RequestBody UserEntity registerUser){
         return userService.register(registerUser);
     }
+
+    @RequestMapping("user/querySecuritiesByUsername")
+    public Map<String,Object> querySecuritiesByUsername(@RequestBody UserEntity user){
+        return userService.querySecuritiesByUsername(user);
+    }
+
+    @RequestMapping("user/getProfileByUsername")
+    public UserEntity getProfileByUsername(@RequestBody UserEntity user){
+        return userService.getProfileByUsername(user);
+    }
+
 }

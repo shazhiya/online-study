@@ -11,6 +11,8 @@ module.exports =  {
     chainWebpack: (config) => {
       config.resolve.alias
         .set('view',resolve('src/views'))
+        .set('component',resolve('src/components'))
+        .set('asset',resolve('src/assets'))
     },
     devServer: {
         host: 'localhost',

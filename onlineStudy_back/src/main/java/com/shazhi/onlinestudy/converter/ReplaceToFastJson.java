@@ -19,7 +19,7 @@ public class ReplaceToFastJson {
     public HttpMessageConverter configureMessageConverters() {
         FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
         FastJsonConfig config = new FastJsonConfig();
-        config.setSerializerFeatures(
+        /*config.setSerializerFeatures(
                 // 保留map空的字段
                 SerializerFeature.WriteMapNullValue,
                 // 将String类型的null转成""
@@ -29,7 +29,7 @@ public class ReplaceToFastJson {
                 // 将List类型的null转成[]
                 SerializerFeature.WriteNullListAsEmpty,
                 // 将Boolean类型的null转成false
-                SerializerFeature.WriteNullBooleanAsFalse);
+                SerializerFeature.WriteNullBooleanAsFalse);*/
 
         converter.setFastJsonConfig(config);
         converter.setDefaultCharset(Charset.forName("UTF-8"));

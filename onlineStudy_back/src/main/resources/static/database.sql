@@ -52,10 +52,18 @@ create table if not exists role_security
 
 create table if not exists user
 (
-    user_id   int auto_increment
+    user_id           int auto_increment
         primary key,
-    password  varchar(32) not null,
-    user_Name varchar(32) null
+    password          varchar(32)                               not null,
+    user_name         varchar(32)                               null,
+    user_email        varchar(32)                               null,
+    user_registerDate datetime                                  null,
+    user_intro        varchar(64)                               null,
+    user_telephone    varchar(32)                               null,
+    user_enable       tinyint(1)  default 1                     null,
+    user_headico      varchar(64) default 'headIco/default.jpg' null,
+    constraint user_user_name_uindex
+        unique (user_name)
 );
 
 create table if not exists curriculum

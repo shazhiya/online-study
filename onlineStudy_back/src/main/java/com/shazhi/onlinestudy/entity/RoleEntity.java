@@ -25,4 +25,10 @@ public class RoleEntity {
     @ManyToMany(mappedBy = "roles")
     @JsonIgnore
     private Collection<UserEntity> users;
+
+    public static RoleEntity ignoreAttr(RoleEntity role){
+        return new RoleEntity()
+                .setRoleId(role.getRoleId())
+                .setRoleName(role.getRoleName());
+    }
 }
