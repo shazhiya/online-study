@@ -1,5 +1,7 @@
 import userManager from '../userManager'
 import mine from '../mine'
+import courseManager from '../courseManager'
+import study from '../study'
 export default {
     path: '/index',
     components:{
@@ -14,6 +16,8 @@ export default {
             }
         },
         userManager,
-        mine
+        mine,
+        courseManager,
+        study
     ]
 }

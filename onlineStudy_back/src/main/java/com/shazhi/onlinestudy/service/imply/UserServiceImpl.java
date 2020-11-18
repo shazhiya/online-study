@@ -8,10 +8,7 @@ import com.shazhi.onlinestudy.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,7 +34,8 @@ public class UserServiceImpl implements UserService {
                     .setUserHeadico(headIco)
                     .setUserEnable(true)
                     .setUserIntro("this is very lazy");
-
+            registerUser.setRoles(new ArrayList<>());
+            registerUser.getRoles().add(new RoleEntity().setRoleId(2));
             registerUser = userRepository.save(registerUser);
             if (registerUser.getUserId() == null) return -1;
             else return 1;

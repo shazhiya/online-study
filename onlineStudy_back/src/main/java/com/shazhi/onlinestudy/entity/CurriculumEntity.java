@@ -14,19 +14,22 @@ public class CurriculumEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer curriculumId;
     private String curriculumName;
     private String curriculumDescription;
+    private String curriculumCover;
 
-    @OneToMany
-    private Collection<ChapterEntity> chaptersByCurriculumId;
+    @OneToMany(mappedBy = "curriculum",cascade = CascadeType.ALL)
+    private Collection<ChapterEntity> chapters;
 
-    @OneToMany
-    private Collection<ClazzEntity> clazzesByCurriculumId;
+    @OneToMany(mappedBy = "curriculum")
+    private Collection<ClazzEntity> clazzes;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
     @OneToMany(mappedBy = "curriculum")
-    private Collection<NoteEntity> notesByCurriculumId;
+    private Collection<NoteEntity> notes;
+
 }

@@ -5,17 +5,13 @@ import com.shazhi.onlinestudy.entity.RoleEntity;
 import com.shazhi.onlinestudy.entity.UserEntity;
 import com.shazhi.onlinestudy.repository.UserManagerRepository;
 import com.shazhi.onlinestudy.service.UserManagerService;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 

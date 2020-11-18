@@ -33,11 +33,14 @@
         <el-menu-item @click="$router.push({name:'index'})">
           home
         </el-menu-item>
+        <el-menu-item @click="$router.push({name:'mine',query: { userName: $store.state.user.username}})">
+          mine
+        </el-menu-item>
         <el-menu-item @click="$router.push({name:'userManager'})" v-if="judge('userManager')">
           user manage
         </el-menu-item>
-        <el-menu-item @click="$router.push({name:'mine',query: { userName: $store.state.user.username}})">
-          mine
+        <el-menu-item @click="$router.push({name:'courseManager'})" v-if="judge('courseManager')">
+          course manager
         </el-menu-item>
       </el-menu>
     </el-drawer>
@@ -46,6 +49,7 @@
         <show :info='$store.state.user.userInfo'>
           <div slot="funcs">
             <el-button type="primary" @click="$router.push({name:'login'})">logout</el-button>
+            <el-button type="primary">notify</el-button>
           </div>
         </show>
     </el-popover>
@@ -66,7 +70,7 @@ export default {
     components:{show},
     methods:{
       judge(name){
-        map(name)
+        return map(name)
       }
     }
 }

@@ -15,3 +15,4 @@ public class OnlineStudyApplication {
         SpringApplication.run(OnlineStudyApplication.class, args);
     }
 }
+

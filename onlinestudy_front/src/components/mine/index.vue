@@ -7,7 +7,7 @@
             <div style="display: inline-block">
               <el-avatar
                 shape="square"
-                :src="this.src + info.userHeadico"
+                :src="info.userHeadico?this.src + info.userHeadico:this.src+'headIco/default.jpg'"
                 :size="64"
               ></el-avatar>
             </div>
@@ -42,7 +42,7 @@
               <el-row class="margin">
                 <el-col :span="4"><div>roles:</div></el-col>
                 <el-col :span="20" class="textRight gray">
-                  <el-tag effect="dark" size="mini" hit:true v-for="role of info.roles" :key="role.roleId">
+                  <el-tag effect="dark" size="mini" hit:true v-for="role of info.roles" :key="role.roleId" style="margin-left:1px">
                       {{role.roleName}}
                   </el-tag>
                 </el-col>
@@ -88,6 +88,9 @@ export default {
 </script>
 
 <style scoped>
+.margin{
+    margin-top: 20px;
+}
 .textRight {
   text-align: right;
 }

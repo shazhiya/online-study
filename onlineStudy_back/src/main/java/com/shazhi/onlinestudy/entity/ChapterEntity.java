@@ -16,7 +16,8 @@ public class ChapterEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer chapterId;
-    private String chapterName;
+    @Column(name = "chapter_name")
+    private String chaptername;
     private String chapterCode;
     private String chapterDescription;
 
@@ -24,6 +25,7 @@ public class ChapterEntity {
     @JoinColumn(name = "curriculum_id")
     private CurriculumEntity curriculum;
 
-    @OneToMany(mappedBy = "chapter")
+    @OneToMany(mappedBy = "chapter",cascade = CascadeType.ALL)
     private Collection<CoursewareEntity> coursewares;
+
 }

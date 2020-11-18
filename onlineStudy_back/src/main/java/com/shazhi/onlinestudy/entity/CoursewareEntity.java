@@ -15,8 +15,10 @@ public class CoursewareEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer coursewareDescription;
-    private String title;
+    private Integer coursewareId;
+    private String coursewareDescription;
+    private String coursewareName;
+    private String coursewarePath;
 
     @OneToMany(mappedBy = "courseware")
     private Collection<BulletScreenEntity> bulletScreens;
@@ -34,4 +36,6 @@ public class CoursewareEntity {
 
     @OneToMany(mappedBy = "courseware")
     private Collection<ProgressEntity> progresses;
+
+
 }
